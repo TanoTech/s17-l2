@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Aggiungi dipendente";
+}
+<div class="container">
+    <h2>Aggiungi Dipendente</h2>
+    <form id="form-dati">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control" id="inputNome" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputCognome">Cognome</label>
+                <input type="text" class="form-control" id="inputCognome" required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputIndirizzo">Indirizzo</label>
+            <input type="text" class="form-control" id="inputIndirizzo" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCF">Codice Fiscale</label>
+                <input type="text" class="form-control" id="inputCF" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputConiugato">Coniugato</label>
+                <select id="inputConiugato" class="form-control">
+                    <option value="1">Sì</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputFigli">Numero di Figli</label>
+                <input type="number" class="form-control" id="inputFigli" min="0">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputMansione">Mansione</label>
+                <input type="text" class="form-control" id="inputMansione">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Aggiungi</button>
+    </form>
+</div>
