@@ -9,18 +9,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Dipendente</th>
+            <th scope="col">Id Transazione</th>
             <th scope="col">Periodo pagamento</th>
             <th scope="col">Totale</th>
             <th scope="col">Stipendio/Acconto</th>
         </tr>
     </thead>
     <tbody>
+        @foreach (var payment in Model)
+        {
         <tr>
-            <th scope="row"></th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Mark</td>
+            <th scope="row">@payment.Id</th>
+            <td>@payment.PeriodoPagamento</td>
+            <td>@payment.Totale.ToString("0.0,0")</td>
+            <td>@(payment.StipendioAcconto ? "Stipendo" : "Acconto")</td>
         </tr>
+        }
     </tbody>
 </table>

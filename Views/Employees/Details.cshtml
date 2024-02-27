@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Dettagli";
+}
+
+<div>
+    <ul>
+        <li>Nome: @Model.Nome</li>
+        <li>Cognome: @Model.Cognome</li>
+        <li>Indirizzo: @Model.Indirizzo</li>
+        <li> Figli a carico: @Model.NumeroFigli</li>
+        <li>Coniugato: @(Model.Coniugato ? "Si" : "No")</li>
+        <li>Coniugato: @Model.Mansione</li>
+    </ul>
+</div>

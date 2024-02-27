@@ -14,7 +14,7 @@ public class PaymentController : Controller
     }
     public IActionResult Index()
     {
-        return View();
+        return View(StaticDb.GetAllPayment());
     }
 
     public IActionResult Add()
@@ -22,9 +22,12 @@ public class PaymentController : Controller
         return View();
     }
 
-    public IActionResult Edit()
+    [HttpPost]
+    public IActionResult Add( DateOnly periodoPagamento, decimal totale, bool stipendioAcconto)
     {
-        return View();
+        
+        StaticDb.Add(periodoPagamento, totale, stipendioAcconto);
+        return RedirectToAction("Index");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

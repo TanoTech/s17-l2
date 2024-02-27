@@ -14,11 +14,30 @@ public class EmployeesController : Controller
     }
     public IActionResult Index()
     {
-        return View();
+        return View(StaticDb.GetAll());
+    }
+
+    public IActionResult Details(int? id)
+    {
+        if (id.HasValue)
+        {
+            return View(StaticDb.GetById(id));
+        }
+        else
+        {
+            return RedirectToAction("Index", "Employees");
+        }
     }
     public IActionResult Add()
     {
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult Add(string nome, string cognome, string indirizzo, bool coniugato, int numeroFigli, string mansione)
+    {
+        var employee = StaticDb.Add(nome, cognome, indirizzo, coniugato, numeroFigli, mansione);
+        return RedirectToAction("Details", new { id = employee.Id });
     }
 
     public IActionResult Edit()

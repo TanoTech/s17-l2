@@ -1,25 +1,29 @@
+@model s17_l1.Models.Payment
+
+@{
+    ViewData["Title"] = "Aggiungi pagamento";
+    var employees = s17_l1.Models.StaticDb.GetAll();
+}
+
+
 <div class="container mt-5">
     <h1>Aggiungi pagamento</h1>
-    <form action="/submit" method="post">
-        <div class="form-group">
-            <label for="iddipendente">ID Dipendente:</label>
-            <input type="text" class="form-control" id="iddipendente" name="iddipendente">
-        </div>
-        <div class="form-group">
-            <label for="periodo">Periodo pagamento:</label>
-            <input type="text" class="form-control" id="periodo" name="periodo">
-        </div>
-        <div class="form-group">
-            <label for="totale">Totale:</label>
-            <input type="text" class="form-control" id="totale" name="totale">
-        </div>
-        <div class="form-group">
-            <label for="stipendio_acconto">Stipendio/Acconto:</label>
-            <select id="inputConiugato" class="form-control">
-                    <option value="1">Stipendio</option>
-                    <option value="0">Acconto</option>
-                </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Invia</button>
-    </form>
+    <form asp-controller="Payment" asp-action="Add" method="post">
+<div class="form-group">
+    <label for="periodo">Periodo pagamento:</label>
+    <input type="date" class="form-control" id="periodo" name="periodoPagamento">
+</div>
+<div class="form-group">
+    <label for="totale">Totale:</label>
+    <input type="number" class="form-control" id="totale" name="totale">
+</div>
+<div class="form-group">
+    <label for="stipendio_acconto">Stipendio/Acconto:</label>
+    <select id="inputConiugato" class="form-control" name="stipendioAcconto">
+        <option value="true">Stipendio</option>
+        <option value="false">Acconto</option>
+    </select>
+</div>
+<button type="submit" class="btn btn-primary">Invia</button>
+</form>
 </div>
